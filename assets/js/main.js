@@ -76,10 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ---------- Formulaire de contact ----------
-  // NOTE : ce formulaire fonctionne côté client (validation + message de
-  // confirmation). Pour un envoi d'e-mail réel, connectez-le à un service
-  // comme Formspree, EmailJS ou un script serveur — voir README.md,
-  // section "Brancher le formulaire de contact".
+  // Envoi réel des messages via Formspree (https://formspree.io/f/mwvgwnyg).
+  // La validation se fait côté client, puis l'envoi se fait en AJAX (fetch)
+  // pour rester sur la page et afficher le message de confirmation.
   var form = document.getElementById('contact-form');
   var feedback = document.getElementById('form-feedback');
 
@@ -103,10 +102,25 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Emplacement pour brancher un envoi réel (fetch vers Formspree /
-      // EmailJS / API interne). Pour l'instant : confirmation locale.
-      showFeedback('Merci ' + nom + ', votre demande a bien été enregistrée. Nous revenons vers vous sous 48h.', 'success');
-      form.reset();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          showFeedback('Merci ' + nom + ', votre demande a bien été enregistrée. Nous revenons vers vous sous 48h.', 'success');
+          form.reset();
+        } else {
+          showFeedback('Une erreur est survenue lors de l\'envoi. Merci de réessayer ou de nous contacter directement par e-mail.', 'error');
+        }
+      }).catch(function () {
+        showFeedback('Une erreur est survenue lors de l\'envoi. Merci de réessayer ou de nous contacter directement par e-mail.', 'error');
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
     });
   }
 
