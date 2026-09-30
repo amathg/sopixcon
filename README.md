@@ -22,24 +22,31 @@ est migré plus tard). Chaque section est identifiée par un commentaire
 `<!-- ===== ... ===== -->` et un `id` (ex: `id="qui-sommes-nous"`). Repérer le texte
 à changer entre les balises `<p>`, `<h2>`, `<h3>` et le remplacer directement.
 
-## Ajouter / remplacer une image ou le logo
+## Images du site
 
-Le site n'utilise aujourd'hui aucune image (uniquement des icônes vectorielles en
-CSS/SVG) en l'attente des visuels et du logo Sopixcon.
+Les photos proviennent de Pexels (licence Pexels : usage commercial gratuit,
+attribution non obligatoire) et sont chargées directement depuis leur CDN
+(`images.pexels.com`, en plusieurs tailles selon l'écran).
 
-1. Déposer les fichiers images dans un dossier `assets/img/`.
-2. Remplacer le logo texte dans `index.html` :
-   ```html
-   <a href="#accueil" class="logo">SOPIX<span>CON</span></a>
-   ```
-   par :
-   ```html
-   <a href="#accueil" class="logo"><img src="assets/img/logo-sopixcon.png" alt="Sopixcon" height="36"></a>
-   ```
-3. Pour une photo d'atelier en fond de section, ajouter dans `style.css` :
-   ```css
-   #qui-sommes-nous{ background-image: url('../img/atelier.jpg'); background-size: cover; }
-   ```
+| Emplacement | Photo |
+|---|---|
+| Fond de l'accueil | https://www.pexels.com/photo/2081132/ |
+| Qui sommes-nous · fond pages Engagements | https://www.pexels.com/photo/3862619/ |
+| Axe 01 · fond pages Test / Méthode / Supply Chain | https://www.pexels.com/photo/10699354/ |
+| Axe 02 — DEEE | https://www.pexels.com/photo/9953442/ |
+| Axe 03 · fond pages N1 / N2 / N3 | https://www.pexels.com/photo/2136243/ |
+| Bandeau « Notre approche » · fond pages Méthode | https://www.pexels.com/photo/9242855/ |
+| Pourquoi nous · fond pages Pourquoi | https://www.pexels.com/photo/30689114/ |
+
+**Remplacer par une vraie photo Sopixcon** : déposer le fichier dans `assets/img/`
+puis remplacer l'adresse `https://images.pexels.com/...` correspondante par
+`assets/img/mon-fichier.jpg` (dans `index.html`, attributs `src` et `srcset` — le
+`srcset` peut simplement être supprimé) ou par `../img/mon-fichier.jpg` dans
+`assets/css/style.css` (fonds : accueil, bandeau, pages détail — bloc « PHOTOS »
+en fin de fichier).
+
+**Logo** : remplacer `<a href="index.html" class="logo">SOPIX<span>CON</span></a>`
+par `<a href="index.html" class="logo"><img src="assets/img/logo-sopixcon.png" alt="Sopixcon" height="36"></a>`.
 
 ## Brancher le formulaire de contact à un envoi d'e-mail réel
 
@@ -69,7 +76,7 @@ certificat SSL (https), généralement inclus automatiquement chez ces hébergeu
 
 ## À finaliser avant mise en ligne
 
-- Logo Sopixcon et photos/visuels industriels (atelier, équipements)
+- Logo Sopixcon ; à terme, remplacer les photos Pexels par de vraies photos de l'atelier
 - Coordonnées réelles (téléphone, e-mail) dans la section Contact
 - Branchement réel du formulaire (voir ci-dessus)
 - Nom de domaine choisi (ex. sopixcon.com / sopixcon.sn)
