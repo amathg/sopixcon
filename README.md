@@ -45,7 +45,7 @@ puis remplacer l'adresse `https://images.pexels.com/...` correspondante par
 `assets/css/style.css` (fonds : accueil, bandeau, pages détail — bloc « PHOTOS »
 en fin de fichier).
 
-**Logo** : remplacer `<a href="index.html" class="logo">SOPIX<span>CON</span></a>`
+**Logo** : remplacer `      <a href="index.html" class="logo"><img src="assets/logo.png" alt="Sopixcon" style="height:40px; width:auto; display:block;"></a>    `
 par `<a href="index.html" class="logo"><img src="assets/img/logo-sopixcon.png" alt="Sopixcon" height="36"></a>`.
 
 ## Brancher le formulaire de contact à un envoi d'e-mail réel
