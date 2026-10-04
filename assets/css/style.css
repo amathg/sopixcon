@@ -826,3 +826,7 @@ input, select, textarea{ padding: 13px 14px; }
   .axe-photo{ transition: none; }
   .axe-figure:hover .axe-photo{ transform: none; }
 }
+.axe-block > p {
+  max-width: none;
+  grid-column: 1 / -1;
+}
