@@ -628,7 +628,7 @@ input:focus, select:focus, textarea:focus{
 /* ---- Respiration générale ---- */
 body{ font-size: 17px; line-height: 1.75; }
 .section{ padding: 128px 0; }
-.section h2{ margin-bottom: .9em; max-width: 30ch; }
+.section h2{ margin-bottom: .9em; }
 .engagement-tag{ max-width: none !important; }
 .section p{ max-width: 68ch; }
 .eyebrow{ margin-bottom: 1em; }
@@ -829,13 +829,4 @@ input, select, textarea{ padding: 13px 14px; }
 .axe-block > p {
   max-width: none;
   grid-column: 1 / -1;
-}
-h1, h2, h3 {
-  max-width: none;
-  text-wrap: wrap;
-}
-
-p {
-  max-width: none;
-  text-wrap: wrap;
 }
