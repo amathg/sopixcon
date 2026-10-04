@@ -1,6 +1,6 @@
 # Site vitrine Sopixcon — Documentation rapide
 
-Site one-page conforme au cahier des charges (accueil, qui sommes-nous, prestations,
+Site one-page conforme au cahier des charges (accueil, A propos, prestations,
 méthode, résultats & engagements, pourquoi nous choisir, contact). Responsive
 mobile / tablette / desktop, sans dépendance externe (pas de framework, pas de CMS).
 
@@ -31,7 +31,7 @@ attribution non obligatoire) et sont chargées directement depuis leur CDN
 | Emplacement | Photo |
 |---|---|
 | Fond de l'accueil | https://www.pexels.com/photo/2081132/ |
-| Qui sommes-nous · fond pages Engagements | https://www.pexels.com/photo/3862619/ |
+| A propos · fond pages Engagements | https://www.pexels.com/photo/3862619/ |
 | Axe 01 · fond pages Test / Méthode / Supply Chain | https://www.pexels.com/photo/10699354/ |
 | Axe 02 — DEEE | https://www.pexels.com/photo/9953442/ |
 | Axe 03 · fond pages N1 / N2 / N3 | https://www.pexels.com/photo/2136243/ |
