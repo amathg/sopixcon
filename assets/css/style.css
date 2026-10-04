@@ -738,7 +738,7 @@ body{ font-size: 17px; line-height: 1.75; }
 .photo-band{
   background:
     linear-gradient(90deg, rgba(10,31,21,.92) 0%, rgba(10,31,21,.7) 55%, rgba(10,31,21,.35) 100%),
-    url('https://images.pexels.com/photos/9242855/pexels-photo-9242855.jpeg?auto=compress&cs=tinysrgb&w=2200') center / cover no-repeat,
+    url('https://images.pexels.com/photos/9242898/pexels-photo-9242898.jpeg') center / cover no-repeat,
     var(--navy-900);
   padding: 150px 0;
 }
