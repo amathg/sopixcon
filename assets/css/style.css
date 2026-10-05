@@ -871,3 +871,9 @@ input, select, textarea{ padding: 13px 14px; }
   .faq-card summary{ padding:18px 20px; }
   .faq-answer{ padding:0 20px 20px; }
 }
+
+/* ---- Sélecteur de langue FR / EN ---- */
+.header-actions{ display:flex; align-items:center; gap:14px; }
+.lang-switch{ display:inline-flex; align-items:center; justify-content:center; min-width:42px; padding:6px 10px; border:1px solid rgba(255,255,255,.35); border-radius:999px; color:var(--white); font-size:.8rem; font-weight:700; letter-spacing:.06em; transition:border-color .2s, color .2s; }
+.lang-switch:hover{ border-color:var(--orange); color:var(--orange); }
+@media (max-width: 760px){ .header-actions{ margin-left:auto; margin-right:12px; } }

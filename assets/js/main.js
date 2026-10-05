@@ -4,6 +4,27 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ---------- Langue (FR / EN) ----------
+  var isEN = document.documentElement.lang === 'en';
+  var T = isEN ? {
+    required: 'Please fill in all required fields (*) and tick the consent box.',
+    email: 'Please enter a valid email address.',
+    thanks: function (n) { return 'Thank you ' + n + ', your request has been received. We will get back to you within 48 hours.'; },
+    error: 'Something went wrong while sending your message. Please try again or contact us directly by email.'
+  } : {
+    required: 'Merci de remplir tous les champs obligatoires (*) et d\'accepter le consentement.',
+    email: 'Merci de saisir une adresse e-mail valide.',
+    thanks: function (n) { return 'Merci ' + n + ', votre demande a bien été enregistrée. Nous revenons vers vous sous 48h.'; },
+    error: 'Une erreur est survenue lors de l\'envoi. Merci de réessayer ou de nous contacter directement par e-mail.'
+  };
+  // Mémorise le choix de langue quand le visiteur clique sur FR / EN
+  document.querySelectorAll('.lang-switch').forEach(function (a) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem('sopixcon-lang', a.getAttribute('hreflang')); } catch (e) {}
+    });
+  });
+
+
   // ---------- Année dynamique dans le footer ----------
   var yearEl = document.getElementById('year');
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
@@ -94,11 +115,11 @@ document.addEventListener('DOMContentLoaded', function () {
       var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (!nom || !email || !message || !consentement) {
-        showFeedback('Merci de remplir tous les champs obligatoires (*) et d\'accepter le consentement.', 'error');
+        showFeedback(T.required, 'error');
         return;
       }
       if (!emailPattern.test(email)) {
-        showFeedback('Merci de saisir une adresse e-mail valide.', 'error');
+        showFeedback(T.email, 'error');
         return;
       }
 
@@ -111,13 +132,13 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: { 'Accept': 'application/json' }
       }).then(function (response) {
         if (response.ok) {
-          showFeedback('Merci ' + nom + ', votre demande a bien été enregistrée. Nous revenons vers vous sous 48h.', 'success');
+          showFeedback(T.thanks(nom), 'success');
           form.reset();
         } else {
-          showFeedback('Une erreur est survenue lors de l\'envoi. Merci de réessayer ou de nous contacter directement par e-mail.', 'error');
+          showFeedback(T.error, 'error');
         }
       }).catch(function () {
-        showFeedback('Une erreur est survenue lors de l\'envoi. Merci de réessayer ou de nous contacter directement par e-mail.', 'error');
+        showFeedback(T.error, 'error');
       }).finally(function () {
         if (submitBtn) submitBtn.disabled = false;
       });
