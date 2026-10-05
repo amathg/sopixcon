@@ -19,7 +19,7 @@ sopixcon-site/
 
 Ouvrir `index.html` dans un éditeur de texte (ou un CMS type WordPress si le site y
 est migré plus tard). Chaque section est identifiée par un commentaire
-`<!-- ===== ... ===== -->` et un `id` (ex: `id="qui-sommes-nous"`). Repérer le texte
+`<!-- ===== ... ===== -->` et un `id` (ex: `id="A propos"`). Repérer le texte
 à changer entre les balises `<p>`, `<h2>`, `<h3>` et le remplacer directement.
 
 ## Images du site
