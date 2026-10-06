@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page en reconditionnement | Sopixcon</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%230F2A1E%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 fill=%22%23E8590C%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-weight=%22bold%22>S</text></svg>">
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+  .e404-hero{ min-height: 100vh; display: flex; align-items: center; text-align: center; }
+  .e404-hero .container{ max-width: 760px; }
+  .e404-num{ display: block; font-size: clamp(5rem, 14vw, 9rem); font-weight: 800; line-height: 1; color: var(--orange); letter-spacing: .02em; margin-bottom: 16px; }
+  .e404-hero h1{ margin-bottom: .4em; }
+  .e404-hero .hero-text{ margin: 0 auto; }
+  .e404-cta{ display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  .e404-links{ display: flex; gap: 12px 28px; justify-content: center; flex-wrap: wrap; margin-top: 32px; font-size: .95rem; }
+  .e404-links a{ color: var(--steel-300); text-decoration: underline; text-underline-offset: 4px; }
+  .e404-links a:hover{ color: var(--white); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo" data-en-href="/en/"><img src="/assets/logo.png" alt="Sopixcon" style="height:40px; width:auto; display:block;"></a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="/#a-propos" data-en-href="/en/#a-propos" data-en="About">A propos</a></li>
+        <li><a href="/#prestations" data-en-href="/en/#prestations" data-en="Our services">Nos prestations</a></li>
+        <li><a href="/#methode" data-en-href="/en/#methode" data-en="Our method">Notre méthode</a></li>
+        <li><a href="/#resultats" data-en-href="/en/#resultats" data-en="Results &amp; commitments">Résultats &amp; engagements</a></li>
+        <li><a href="/#pourquoi-nous" data-en-href="/en/#pourquoi-nous" data-en="Why us">Pourquoi nous</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="/en/" class="lang-switch" data-en-href="/" data-en="FR">EN</a>
+      <a href="/#contact" class="btn btn-primary nav-cta" data-en-href="/en/#contact" data-en="Request an audit">Demander un audit</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="detail-hero detail-hero--recond e404-hero">
+  <div class="container">
+    <span class="e404-num" aria-hidden="true">404</span>
+    <h1 data-en="This page is being refurbished">Cette page est en reconditionnement</h1>
+    <p class="detail-tagline" data-en="Diagnosis: page not found">Diagnostic : page introuvable</p>
+    <p class="hero-text" data-en="It isn't available right now, or its address has changed. In the meantime, you can explore our services.">Elle n'est pas disponible pour l'instant, ou son adresse a changé. En attendant, vous pouvez consulter nos métiers.</p>
+    <div class="e404-cta">
+      <a href="/#prestations" class="btn btn-primary" data-en-href="/en/#prestations" data-en="Discover our services">Découvrir nos métiers</a>
+      <a href="/" class="btn btn-outline" data-en-href="/en/" data-en="Back to home">Retour à l'accueil</a>
+    </div>
+    <div class="e404-links">
+      <a href="/faq.html" data-en-href="/en/faq.html" data-en="Frequently asked questions">Questions fréquentes</a>
+      <a href="/#contact" data-en-href="/en/#contact" data-en="Contact us">Nous contacter</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> <span data-en="Sopixcon — Industrial operator · WEEE recycling · Refurbishment · Senegal, Africa">Sopixcon — Opérateur industriel · Recyclage DEEE · Reconditionnement · Sénégal, Afrique</span></p>
+    <nav class="footer-links">
+      <a href="/faq.html" data-en-href="/en/faq.html">FAQ</a>
+      <a href="/mentions-legales.html" data-en-href="/en/mentions-legales.html" data-en="Legal notice">Mentions légales</a>
+      <a href="/confidentialite.html" data-en-href="/en/confidentialite.html" data-en="Privacy Policy">Politique de confidentialité</a>
+    </nav>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Retour en haut">↑</button>
+
+<script>
+(function () {
+  // Version anglaise pour les adresses en /en/
+  if (location.pathname.indexOf('/en/') === 0) {
+    document.documentElement.lang = 'en';
+    document.title = 'Page being refurbished | Sopixcon';
+    document.querySelectorAll('[data-en]').forEach(function (el) { el.textContent = el.getAttribute('data-en'); });
+    document.querySelectorAll('[data-en-href]').forEach(function (el) { el.setAttribute('href', el.getAttribute('data-en-href')); });
+    var t = document.getElementById('nav-toggle'); if (t) t.setAttribute('aria-label', 'Open menu');
+  }
+})();
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
