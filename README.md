@@ -82,3 +82,16 @@ certificat SSL (https), généralement inclus automatiquement chez ces hébergeu
 - Nom de domaine choisi (ex. sopixcon.com / sopixcon.sn)
 - Intégration Google Analytics / Search Console si souhaité
 - Mentions légales et politique de confidentialité (liens déjà prévus en pied de page)
+
+
+## SEO (mise à jour octobre 2026)
+
+- Liens internes vers l'accueil : `/` (FR) et `/en/` (EN), jamais `index.html`.
+- Chaque page a un `<title>`, une description, canonical, hreflang (fr / en / x-default), Open Graph, Twitter Card et des données structurées JSON-LD.
+- Images de partage : `assets/og-image.png` (FR) et `assets/og-image-en.png` (EN), 1200 × 630.
+- Favicons : `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` (à la racine).
+- `sitemap.xml` : 48 URL avec `lastmod` et hreflang. Après une modification importante, mettre à jour `lastmod`
+  et le soumettre à nouveau dans Google Search Console.
+- À faire quand ils existent : ajouter les URL de la fiche Google Business Profile, de LinkedIn, etc. dans la propriété
+  `sameAs` du JSON-LD « Organization » de `index.html` et `en/index.html`.
+- Photos : si vous remplacez les images Pexels, conservez un texte alternatif (`alt`) décrivant la nouvelle photo.
