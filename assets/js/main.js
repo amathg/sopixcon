@@ -103,6 +103,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('contact-form');
   var feedback = document.getElementById('form-feedback');
 
+  // Suivi (dataLayer → GTM → GA4) : voir assets/js/tracking.js
+  var track = window.sopixTrack || function () {};
+  var LEAD_TYPES = { audit: 'prestation_industrielle', deee: 'recyclage_deee', reconditionnement: 'reconditionnement', autre: 'autre' };
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -116,13 +120,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!nom || !email || !message || !consentement) {
         showFeedback(T.required, 'error');
+        track('contact_form_error', { error_type: 'champs_manquants' });
         return;
       }
       if (!emailPattern.test(email)) {
         showFeedback(T.email, 'error');
+        track('contact_form_error', { error_type: 'email_invalide' });
         return;
       }
 
+      var leadType = LEAD_TYPES[form.besoin ? form.besoin.value : ''] || 'autre';
       var submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) submitBtn.disabled = true;
 
@@ -134,11 +141,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (response.ok) {
           showFeedback(T.thanks(nom), 'success');
           form.reset();
+          track('generate_lead', { lead_type: leadType });
         } else {
           showFeedback(T.error, 'error');
+          track('contact_form_error', { error_type: 'erreur_serveur' });
         }
       }).catch(function () {
         showFeedback(T.error, 'error');
+        track('contact_form_error', { error_type: 'erreur_reseau' });
       }).finally(function () {
         if (submitBtn) submitBtn.disabled = false;
       });
